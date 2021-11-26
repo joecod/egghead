@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Hello, Bootstrap!</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById('root')
+        const links = [
+            {
+                text: 'Syling',
+                link: '10-styling.html'
+            },
+            {
+                text: 'AbouT',
+                link: '#'
+            },
+            {
+                text: 'Teste',
+                link: '#'
+            },
+
+        ]
+        const skills =[
+            {"id":1,"hero":"Antiquarian","skill":"Invigorating Vapours","range":"Buff","rank":"34","target":"all ally","dmgMod":"","accuracy":"","critMod":"","effect":"+3 DODGE","self":"","heal":"","speed":5,"dmgBase":"3-5","dmg":"","dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":2,"hero":"Antiquarian","skill":"Fortifying Vapours","range":"Heal","rank":"34","target":"ally","dmgMod":"","accuracy":"","critMod":"","effect":"+10% Blight Resist, +10% Bleed Resist","self":"","heal":"1-1","speed":5,"dmgBase":"3-5","dmg":"","dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":3,"hero":"Antiquarian","skill":"Protect Me","range":"Buff","rank":"1234","target":"ally","dmgMod":"","accuracy":"","critMod":"","effect":"+4 DODGE, +10% PROT, Mark Target, Force Gurad by Ally","self":"","heal":"","speed":5,"dmgBase":"3-5","dmg":"","dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":4,"hero":"Antiquarian","skill":"Get Down!","range":"Buff","rank":"1234","target":"serf","dmgMod":"","accuracy":"","critMod":"","effect":"","self":"Back 2, +10% Blight Skill Chance, +15 DODGE, +1 SPD","heal":"","speed":5,"dmgBase":"3-5","dmg":"","dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":5,"hero":"Antiquarian","skill":"Nervous Stab","range":"Melee","rank":"1234","target":"123","dmgMod":0,"accuracy":85,"critMod":0.03,"effect":"","self":"","heal":"","speed":5,"dmgBase":"3-5","dmg":4,"dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":6,"hero":"Antiquarian","skill":"Festering Vapours","range":"Ranged","rank":"1234","target":"1234","dmgMod":-0.75,"accuracy":95,"critMod":0,"effect":"Blight 1/3","self":"","heal":"","speed":5,"dmgBase":"3-5","dmg":1,"dmgMin":3,"dmgMax":5,"dmgMed":4},{"id":7,"hero":"Antiquarian","skill":"Flashpowder","range":"Ranged","rank":"1234","target":"1234","dmgMod":-1,"accuracy":95,"critMod":"","effect":"-10 ACC, Remove Stealth","self":"","heal":"","speed":5,"dmgBase":"3-5","dmg":0,"dmgMin":3,"dmgMax":5,"dmgMed":4},
+            {"id":8,"hero":"Grave Robber","skill":"Shadow Fade","range":"Buff","rank":"12","target":"self","dmgMod":"","accuracy":"","critMod":"","effect":"","self":"Back 2, Stealth, +80% DMG, +5% CRIT, +11 DODGE","heal":"","speed":8,"dmgBase":"4-8","dmg":"","dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":9,"hero":"Grave Robber","skill":"Toxin Trickery","range":"Buff","rank":"1234","target":"self","dmgMod":"","accuracy":"","critMod":"","effect":"","self":"Cure Blight, Cure Bleed, +9 DODGE, +2 SPD","heal":"","speed":8,"dmgBase":"4-8","dmg":"","dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":10,"hero":"Grave Robber","skill":"Lunge","range":"Melee","rank":"34","target":"123","dmgMod":0.4,"accuracy":95,"critMod":0.08,"effect":"+20% DMG vs Blighted","self":"","heal":"","speed":8,"dmgBase":"4-8","dmg":8.4,"dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":11,"hero":"Grave Robber","skill":"Thrown Dagger","range":"Ranged","rank":"234","target":"234","dmgMod":-0.1,"accuracy":90,"critMod":0.08,"effect":"+25% DMG vs Marked, +20% DMG vs Blighted","self":"+5 ACC","heal":"","speed":8,"dmgBase":"4-8","dmg":5.4,"dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":12,"hero":"Grave Robber","skill":"Pick to the Face","range":"Range","rank":"123","target":"12","dmgMod":-0.15,"accuracy":90,"critMod":0.01,"effect":"Armor Piercing","self":"","heal":"","speed":8,"dmgBase":"4-8","dmg":5.1,"dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":13,"hero":"Grave Robber","skill":"Flashing Daggers","range":"Ranged","rank":"234","target":"2-3","dmgMod":-0.33,"accuracy":90,"critMod":0.05,"effect":"-20% Bleed Resist","self":"","heal":"","speed":8,"dmgBase":"4-8","dmg":4.02,"dmgMin":4,"dmgMax":8,"dmgMed":6},{"id":14,"hero":"Grave Robber","skill":"Poison Dart","range":"Ranged","rank":"234","target":"1234","dmgMod":-0.6,"accuracy":95,"critMod":0.075,"effect":"Blight 2/4, -20 Blight Resist","self":"","heal":"","speed":8,"dmgBase":"4-8","dmg":2.4000000000000004,"dmgMin":4,"dmgMax":8,"dmgMed":6}
+        ]
+        const element = (
+            <>
+                <Header links={links} active={2} />
+
+                <div className="container">
+                    <Filter skills={skills}/>                    
+                </div>
+            </>
+         )
+                    
+        function Filter({skills}) {
+
+            const [buffValue, setBuffValue] = React.useState(true);
+            const [healValue, setHealValue] = React.useState(true);
+            const [meleeRangedValue, setMeleeRangedValue] = React.useState(true);
+
+            const buffChangeHandler = () =>  setBuffValue(!buffValue) ;
+            const healChangeHandler = () =>  setHealValue(!healValue) ;
+            const meleeRangedChangeHandler = () =>  setMeleeRangedValue(!meleeRangedValue) ;
+
+            const rangeList = (skillsList) => {
+                console.log(buffValue);
+                var temp = [];
+                skillsList.forEach(s => {
+                    if (buffValue && s.range=='Buff') temp.push(s)
+                    if (healValue && s.range=='Heal') temp.push(s)
+                    if (meleeRangedValue && (s.range=='Melee' || s.range=='Ranged')) temp.push(s)
+                });
+                
+                return temp;
+            }
+
+            const effectList = (skillsList) => {
+                console.log(buffValue);
+                var temp = [];
+                skillsList.forEach(s => {
+                    if (buffValue && s.range=='Buff') temp.push(s)
+                    if (healValue && s.range=='Heal') temp.push(s)
+                    if (meleeRangedValue && (s.range=='Melee' || s.range=='Ranged')) temp.push(s)
+                });
+                
+                return temp;
+            }
+
+            return (
+                <div>
+                    <div><Checkbox label=' Buff' value={buffValue} onChange={buffChangeHandler} /> </div>
+                    <div><Checkbox label=' Heal' value={healValue} onChange={healChangeHandler} /> </div>
+                    <div><Checkbox label=' Melee/Ranged' value={meleeRangedValue} onChange={meleeRangedChangeHandler} /> </div>
+                    <Table skills={rangeList(skills)} heads={['Hero', 'Skill', 'DMG', 'Heal', 'Effect', 'Self', 'Rank/Target']} />
+                </div>
+            )
+        }
+
+        function Checkbox ({ label, value, onChange }) {
+            return (
+                <label>
+                    <input type="checkbox" checked={value} onChange={onChange} />
+                    {label}
+                </label>
+            )
+        };
+
+        function Table({skills, heads}) {
+            return (
+                <table className="table table-sm">
+                    <THead heads ={heads} />
+                    <TBody skills={skills} />                                                                                
+                </table>  
+            )
+        }
+
+        function THead({heads}) {
+            return (
+                <thead>
+                    <tr>
+                        {heads.map((h, i) => <th scope="col" key={i}>{h}</th>)}
+                    </tr>
+                </thead>
+            )
+        }
+
+        function TBody({skills}) {
+            const rows = skills.map((s, i) => <Tr key={i} skill={s} />)
+            return (
+                <tbody>
+                    {rows}
+                </tbody>
+            )
+        }
+
+        const clasName = (skill) => {
+                const range = skill.range;
+                if (range == 'Heal') return 'table-success';
+                if (range == 'Buff') return 'table-primary'; 
+                return 'table-danger';
+
+        };
+
+        function Tr({skill}) {
+            const range = skill.range;
+            
+            
+            return (
+                <tr className={clasName(skill)}>
+                    <th scope="row">{skill.hero + ' (' + skill.speed + ')'}</th>
+                    <td>{skill.skill}</td>
+                    <td>{skill.dmg}</td>
+                    <td>{skill.heal}</td>
+                    <td>{skill.effect}</td>
+                    <td>{skill.self}</td>
+                    <td>{skill.rank + '/'+ skill.target}</td>
+                </tr>
+            )
+        }
+
+        function Header({ links, active }) {
+            const listItens = links.map((l, i) =>
+                <HeaderLink text={l.text} link={l.link} isActive={active == i ? true : false} key={i.toString()} />
+            )
+            return (
+                <div className="header">
+                    <header className="d-flex justify-content-center py-3">
+                        <ul className="nav nav-pills">
+                            {listItens}
+                        </ul>
+                    </header>
+                </div>
+            )
+        }
+
+        function HeaderLink({ text, link, isActive = false }) {
+            // const active = isActive ? 'active' : '';
+            const className = isActive ? 'nav-link active' : 'nav-link';
+            return (
+                <li className="nav-item"><a href={link} className={className}>{text}</a></li>
+            )
+        }
+        ReactDOM.render(element, rootElement)
+    </script>
+    <!-- 
+<li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+<li class="nav-item"><a href="#" class="nav-link" >Features</a></li>
+<li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+<li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>                        
+<HeaderLink text='Styling' link='10-styling.html' isActive={false}/> 
+-->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
